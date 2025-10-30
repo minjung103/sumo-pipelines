@@ -361,8 +361,7 @@ def traci_priority_light_control(
                         # Without this protection, main road (with higher vehicle volume) 
                         # would quickly regain priority after just 1-2 side road vehicles pass,
                         # leaving remaining side road vehicles to wait much longer.
-                        if (not phase.on and 
-                            selected_combo not in [(2, 6), (2, 5), (1, 6), (1, 5)]):
+                        if p_num != 2 and p_num != 6:
                             # Artificially reduce waiting time to give these vehicles 
                             # sustained priority until they clear the intersection
                             for veh_id in list(phase._ids):
